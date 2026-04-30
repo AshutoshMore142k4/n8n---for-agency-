@@ -6,7 +6,7 @@ This is an n8n workflow for an **AI Virtual Assistant** that uses natural langua
 
 This repository contains the workflow for the n8n automation platform. Below is a visual representation of the workflow:
 
-![Workflow Diagram](./imagel.png)
+![Workflow Diagram](./new-image.png)
 
 The workflow includes the following nodes:
 
