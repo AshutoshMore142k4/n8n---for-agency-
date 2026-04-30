@@ -4,7 +4,20 @@ This is an n8n workflow for an **AI Virtual Assistant** that uses natural langua
 
 ## 📸 Workflow Overview
 
-![Workflow Overview](imagel.png)
+This repository contains the workflow for the n8n automation platform. Below is a visual representation of the workflow:
+
+![Workflow Diagram](./imagel.png)
+
+The workflow includes the following nodes:
+
+1. **Telegram Trigger**: Listens for incoming messages on Telegram.
+2. **Prepare Data**: Processes the incoming data.
+3. **OpenAI Model**: Utilizes AI to process and analyze the data.
+4. **Load CRM Data**: Reads data from the CRM.
+5. **CRM Search Tool**: Searches the CRM for relevant information.
+6. **Google Calendar Tool**: Creates calendar events.
+7. **Send Response**: Sends a response back to the user.
+8. **Send Confirmation Email**: Sends a confirmation email for the created event.
 
 ## 📋 Features
 - **Natural language interface:** Chat via Telegram
