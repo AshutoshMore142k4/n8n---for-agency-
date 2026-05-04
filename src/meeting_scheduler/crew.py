@@ -21,11 +21,7 @@ class MeetingSchedulerCrew:
         )
 
         extract_task = Task(
-            description="User message: {user_message}
-History: {history}
-Current time: {current_time}
-
-Extract meeting intent. Return valid JSON only.",
+            description="User message: {user_message}\\nHistory: {history}\\nCurrent time: {current_time}\\n\\nExtract meeting intent. Return valid JSON only.",
             expected_output="JSON with: title, agenda, duration_min, timezone, attendees, date_preference, time_preference, missing_fields, confidence (0-1), ready_to_schedule (bool)",
             agent=intent_agent
         )
