@@ -4,7 +4,7 @@ import warnings
 
 from datetime import datetime
 
-from meeting_scheduler.crew import MeetingScheduler
+from meeting_scheduler.crew import MeetingSchedulerCrew
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -18,12 +18,13 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'user_message': 'Can I schedule a meeting with Alice and Bob tomorrow at 2 PM IST for 30 minutes to discuss the AI LLMs topic?',
+        'history': 'None',
+        'current_time': str(datetime.now().isoformat())
     }
 
     try:
-        MeetingScheduler().crew().kickoff(inputs=inputs)
+        MeetingSchedulerCrew().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -37,7 +38,7 @@ def train():
         'current_year': str(datetime.now().year)
     }
     try:
-        MeetingScheduler().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        MeetingSchedulerCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -47,7 +48,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        MeetingScheduler().crew().replay(task_id=sys.argv[1])
+        MeetingSchedulerCrew().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -62,7 +63,7 @@ def test():
     }
 
     try:
-        MeetingScheduler().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
+        MeetingSchedulerCrew().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
@@ -88,7 +89,7 @@ def run_with_trigger():
     }
 
     try:
-        result = MeetingScheduler().crew().kickoff(inputs=inputs)
+        result = MeetingSchedulerCrew().crew().kickoff(inputs=inputs)
         return result
     except Exception as e:
         raise Exception(f"An error occurred while running the crew with trigger: {e}")
